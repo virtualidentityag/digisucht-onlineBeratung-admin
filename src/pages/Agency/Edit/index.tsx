@@ -25,8 +25,8 @@ import { ContactSettings } from './components/ContactSettings';
 import styles from '../../../components/Page/styles.module.scss';
 import { AgencyLogo } from './components/AgencyLogo';
 
-function hasOnlyDefaultRangeDefined(data: PostCodeRange[]) {
-    return data?.length === 0 || (data?.length === 1 && data[0].from === '00000' && data[0].until === '99999');
+function hasOnlyDefaultRangeDefined(range: string) {
+    return !range || range === '00000-99999;';
 }
 
 const DEFAULT_MIN_AGE = 18;

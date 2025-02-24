@@ -35,7 +35,7 @@ export interface AgencyData {
     status: string | undefined;
     deleteDate: string | undefined;
     dioceseId?: string;
-    postCodes?: PostCodeRange[];
+    postCodes?: PostCodeRange;
     dataProtection: {
         dataProtectionResponsibleEntity:
             | 'AGENCY_RESPONSIBLE'
