@@ -17,7 +17,7 @@ export function transformPostcodeRanges(postcodeRanges: string): string {
             if (!match) {
                 return '';
             }
-            const [_, from, to] = match;
+            const [, from, to] = match;
             return to ? `${from},${to}` : from; // "FROM-TO" => "FROM,TO"
         })
         .join(';\n')};`; // Rejoin and ensure exactly one final semicolon

@@ -101,3 +101,14 @@ export function parsePostcodeRanges(formatted: string): string {
     // If valid, join everything with semicolons and add one final semicolon
     return `${parsedRanges.join(';')};`;
 }
+
+/**
+ * Validates and transforms a postcode range string for use in agency settings.
+ * Wraps the parsePostcodeRanges function and returns the properly formatted string.
+ *
+ * @param rangeString - The postcode range string to validate
+ * @returns A validated and formatted postcode range string
+ */
+export function validatePostcodeRanges(rangeString: string): string {
+    return parsePostcodeRanges(rangeString);
+}
