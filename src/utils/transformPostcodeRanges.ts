@@ -7,20 +7,18 @@
  *          separated by `";\n"` and ending with a single semicolon.
  */
 export function transformPostcodeRanges(postcodeRanges: string): string {
-  return (
-    postcodeRanges
-      .replace(/;$/, '') // Remove trailing semicolon if it exists
-      .split(';')        // Split by semicolons
-      .filter(Boolean)   // Remove empty entries
-      .map((range) => {
-        const regex = /^(\d+)(?:-(\d+))?$/;
-        const match = regex.exec(range);
-        if (!match) {
-          return '';
-        }
-        const [_, from, to] = match;
-        return to ? `${from},${to}` : from; // "FROM-TO" => "FROM,TO"
-      })
-      .join(';\n') + ';'
-  ); // Rejoin and ensure exactly one final semicolon
-} 
+    return `${postcodeRanges
+        .replace(/;$/, '') // Remove trailing semicolon if it exists
+        .split(';') // Split by semicolons
+        .filter(Boolean) // Remove empty entries
+        .map((range) => {
+            const regex = /^(\d+)(?:-(\d+))?$/;
+            const match = regex.exec(range);
+            if (!match) {
+                return '';
+            }
+            const [_, from, to] = match;
+            return to ? `${from},${to}` : from; // "FROM-TO" => "FROM,TO"
+        })
+        .join(';\n')};`; // Rejoin and ensure exactly one final semicolon
+}

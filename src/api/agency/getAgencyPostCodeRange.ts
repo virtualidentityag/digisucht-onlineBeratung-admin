@@ -19,7 +19,7 @@ const getAgencyPostCodeRange = (id: string) => {
         responseHandling: [FETCH_ERRORS.CATCH_ALL],
     }).then((data) => {
         return {
-            range: transformPostcodeRanges(data)
+            range: transformPostcodeRanges(data),
         };
     });
 };

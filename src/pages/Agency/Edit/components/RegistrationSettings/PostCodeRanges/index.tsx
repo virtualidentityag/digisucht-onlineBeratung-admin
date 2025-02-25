@@ -25,9 +25,7 @@ export const PostCodeRanges = () => {
 
     return (
         <div className={styles.postCodeRangesContainer}>
-            <Typography.Paragraph>
-                {t('agency.form.registrationSettings.newPostCodeLabel')}
-            </Typography.Paragraph>
+            <Typography.Paragraph>{t('agency.form.registrationSettings.newPostCodeLabel')}</Typography.Paragraph>
             <FormTextAreaField
                 name="postCodes"
                 disabled={contextDisabled}
@@ -35,11 +33,11 @@ export const PostCodeRanges = () => {
                 rules={[
                     {
                         required: true,
-                        message: t('agency.postcode.required')
+                        message: t('agency.postcode.required'),
                     },
                     {
-                        validator: validatePostcodes
-                    }
+                        validator: validatePostcodes,
+                    },
                 ]}
             />
         </div>
