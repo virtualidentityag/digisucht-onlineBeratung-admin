@@ -150,7 +150,7 @@ export const AgencyPageEdit = () => {
             <Form
                 initialValues={{
                     ...agencyData,
-                    postCodes: postCodes?.length > 0 ? postCodes : [{ from: '00000', until: '99999' }],
+                    postCodes: postCodes || '00000-99999;',
                     ...demographicsInitialValues,
                     ...counsellingRelationsInitialValues,
                     postCodeRangesActive: !hasOnlyDefaultRangeDefined(postCodes || []),

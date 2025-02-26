@@ -2,10 +2,6 @@ import { FETCH_ERRORS, FETCH_METHODS, fetchData } from '../fetchData';
 import { agencyPostcodeRangeEndpointBase } from '../../appConfig';
 import { transformPostcodeRanges } from '../../utils/transformPostcodeRanges';
 
-export interface PostCodeRange {
-    range: string;
-}
-
 /**
  * get postcode ranges of an agency
  * @param id - agency id
@@ -18,9 +14,9 @@ const getAgencyPostCodeRange = (id: string) => {
         skipAuth: false,
         responseHandling: [FETCH_ERRORS.CATCH_ALL],
     }).then((data) => {
-        return {
-            range: transformPostcodeRanges(data),
-        };
+        const { _embedded: embedded } = data || {};
+        const postcodeRanges = embedded?.postcodeRanges || '';
+        return transformPostcodeRanges(postcodeRanges);
     });
 };
 

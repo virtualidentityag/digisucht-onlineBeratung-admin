@@ -30,6 +30,7 @@ export const PostCodeRanges = () => {
                 name="postCodes"
                 disabled={contextDisabled}
                 placeholder={t('agency.form.registrationSettings.postCodePlaceholder')}
+                rows={8}
                 rules={[
                     {
                         required: true,
