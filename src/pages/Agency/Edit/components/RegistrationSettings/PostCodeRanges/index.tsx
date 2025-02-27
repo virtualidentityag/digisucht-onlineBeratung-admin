@@ -10,14 +10,10 @@ export const PostCodeRanges = () => {
     const { t } = useTranslation();
     const contextDisabled = useContext(DisabledContext);
 
-    const validatePostcodes = (_: any, value: string) => {
-        if (!value) {
-            return Promise.reject(new Error(t('agency.postcode.required')));
-        }
-
+    const validatePostcodes = async (_: any, value: string) => {
         try {
-            validatePostcodeRanges(value);
-            return Promise.resolve();
+            validatePostcodeRanges(value, t);
+            return await Promise.resolve();
         } catch (error) {
             return Promise.reject(error);
         }
@@ -33,10 +29,6 @@ export const PostCodeRanges = () => {
                 labelKey="agency.form.registrationSettings.newPostCodeLabel"
                 rows={8}
                 rules={[
-                    {
-                        required: true,
-                        message: t('agency.postcode.required'),
-                    },
                     {
                         validator: validatePostcodes,
                     },

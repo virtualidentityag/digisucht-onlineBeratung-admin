@@ -1,3 +1,5 @@
+import { TFunction } from 'i18next';
+
 /**
  * Parses a multi-line string expected to contain 5-digit postal codes in either:
  *   - Single code form: "12345;"
@@ -20,12 +22,13 @@
  * Throws an Error if any line is invalid, listing *all* issues found.
  *
  * @param formatted - The multi-line string containing postal code(s).
+ * @param t - Translation function for error messages
  * @returns A string of postal code ranges in the format "FROM-TO;"
  */
-export function parsePostcodeRanges(formatted: string): string {
+export function parsePostcodeRanges(formatted: string, t: TFunction): string {
     // Validate input type
     if (typeof formatted !== 'string') {
-        throw new Error('Input must be a string');
+        throw new Error(t('message.error.postcode.inputMustBeString'));
     }
 
     // Split into lines, filter out empty lines
@@ -35,7 +38,7 @@ export function parsePostcodeRanges(formatted: string): string {
 
     // If no valid lines found after filtering
     if (rawLines.length === 0) {
-        throw new Error('Input must contain at least one postal code');
+        throw new Error(t('message.error.postcode.inputMustContainPostalCode'));
     }
 
     rawLines.forEach((rawLine, index) => {
@@ -47,13 +50,13 @@ export function parsePostcodeRanges(formatted: string): string {
 
         // If the line is empty after trimming, treat as an error
         if (!line) {
-            errors.push(`Line ${lineNumber} is empty. Each line must contain a postal code followed by a semicolon.`);
+            errors.push(t('message.error.postcode.emptyLine', { lineNumber }));
             return;
         }
 
         // 2) Must end with exactly one semicolon, no others allowed
         if (!line.endsWith(';')) {
-            errors.push(`Line ${lineNumber} must end with exactly one semicolon (e.g., "12345;").`);
+            errors.push(t('message.error.postcode.missingSemicolon', { lineNumber }));
             return; // Stop further checks on this line
         }
 
@@ -62,14 +65,14 @@ export function parsePostcodeRanges(formatted: string): string {
 
         // Check if there's any other semicolon left in 'content'
         if (content.includes(';')) {
-            errors.push(`Line ${lineNumber} has more than one semicolon. Only one semicolon is allowed, at the end.`);
+            errors.push(t('message.error.postcode.multipleSemicolons', { lineNumber }));
             return;
         }
 
         // 3) Split by comma => must have 1 or 2 parts (single or paired code)
         const parts = content.split(',');
         if (parts.length === 0 || parts.length > 2) {
-            errors.push(`Line ${lineNumber} has ${parts.length} code(s). Only 1 or 2 codes allowed per line.`);
+            errors.push(t('message.error.postcode.invalidCodeCount', { lineNumber, count: parts.length }));
             return;
         }
 
@@ -78,7 +81,11 @@ export function parsePostcodeRanges(formatted: string): string {
             const trimmedPart = part.trim();
             if (!/^\d{5}$/.test(trimmedPart)) {
                 errors.push(
-                    `Line ${lineNumber}, part ${partIndex + 1}: "${trimmedPart}" must be a 5-digit postal code.`,
+                    t('message.error.postcode.invalidPostalCode', {
+                        lineNumber,
+                        partIndex: partIndex + 1,
+                        code: trimmedPart,
+                    }),
                 );
             }
             return trimmedPart;
@@ -107,8 +114,9 @@ export function parsePostcodeRanges(formatted: string): string {
  * Wraps the parsePostcodeRanges function and returns the properly formatted string.
  *
  * @param rangeString - The postcode range string to validate
+ * @param t - Translation function for error messages
  * @returns A validated and formatted postcode range string
  */
-export function validatePostcodeRanges(rangeString: string): string {
-    return parsePostcodeRanges(rangeString);
+export function validatePostcodeRanges(rangeString: string, t: TFunction): string {
+    return parsePostcodeRanges(rangeString, t);
 }

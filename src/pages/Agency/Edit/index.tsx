@@ -25,7 +25,7 @@ import styles from '../../../components/Page/styles.module.scss';
 import { AgencyLogo } from './components/AgencyLogo';
 
 function hasOnlyDefaultRangeDefined(range: string) {
-    return !range || range === '00000-99999;';
+    return !range || range === '00000,99999;';
 }
 
 const DEFAULT_MIN_AGE = 18;
@@ -85,6 +85,7 @@ export const AgencyPageEdit = () => {
             topicIds: formData.topicIds?.map(({ value }) => value),
             offline: !formData.online,
             counsellingRelations: formData.counsellingRelations?.map(({ value }) => value),
+            postCodes: formData.postCodeRangesActive ? formData.postCodes : '00000,99999;',
         };
 
         mutate(newFormData, {
@@ -150,7 +151,7 @@ export const AgencyPageEdit = () => {
             <Form
                 initialValues={{
                     ...agencyData,
-                    postCodes: postCodes || '00000-99999;',
+                    postCodes: postCodes || '00000,99999;',
                     ...demographicsInitialValues,
                     ...counsellingRelationsInitialValues,
                     postCodeRangesActive: !hasOnlyDefaultRangeDefined(postCodes || ''),

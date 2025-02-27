@@ -1,3 +1,4 @@
+import { TFunction } from 'i18next';
 import { FETCH_ERRORS, FETCH_METHODS, fetchData } from '../fetchData';
 import { agencyEndpointBase } from '../../appConfig';
 import updateAgencyPostCodeRange from './updateAgencyPostCodeRange';
@@ -43,9 +44,10 @@ async function createAgency(agencyDataRequestBody: string) {
 /**
  * add new agency
  * @param agencyData
+ * @param t - Translation function for error messages
  * @return data
  */
-async function addAgencyData(agencyData: Record<string, any>) {
+async function addAgencyData(agencyData: Record<string, any>, t: TFunction) {
     const consultingTypeId =
         agencyData.consultingType !== null && agencyData.consultingType !== undefined
             ? parseInt(agencyData.consultingType, 10)
@@ -55,7 +57,7 @@ async function addAgencyData(agencyData: Record<string, any>) {
     const agencyCreationResponse = await createAgency(agencyDataRequestBody);
     // eslint-disable-next-line no-underscore-dangle
     const agencyResponseData = agencyCreationResponse._embedded;
-    await updateAgencyPostCodeRange(agencyResponseData.id, agencyData.postCodes || '', 'POST');
+    await updateAgencyPostCodeRange(agencyResponseData.id, agencyData.postCodes || '', 'POST', t);
 
     return agencyResponseData;
 }
