@@ -29,7 +29,8 @@ export const PostCodeRanges = () => {
             <FormTextAreaField
                 name="postCodes"
                 disabled={contextDisabled}
-                placeholder={t('agency.form.registrationSettings.postCodePlaceholder')}
+                placeholderKey="agency.form.registrationSettings.postCodePlaceholder"
+                labelKey="agency.form.registrationSettings.newPostCodeLabel"
                 rows={8}
                 rules={[
                     {

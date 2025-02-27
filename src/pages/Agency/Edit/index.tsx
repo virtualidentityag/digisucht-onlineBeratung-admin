@@ -153,7 +153,7 @@ export const AgencyPageEdit = () => {
                     postCodes: postCodes || '00000-99999;',
                     ...demographicsInitialValues,
                     ...counsellingRelationsInitialValues,
-                    postCodeRangesActive: !hasOnlyDefaultRangeDefined(postCodes || []),
+                    postCodeRangesActive: !hasOnlyDefaultRangeDefined(postCodes || ''),
                     online: agencyData?.id ? !agencyData?.offline : false,
                     topicIds: convertToOptions(agencyData?.topics, 'name', 'id', true),
                 }}
