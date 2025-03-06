@@ -1,4 +1,4 @@
-import { TFunction } from 'i18next';
+import { translationService } from '../services/translationService';
 
 /**
  * Parses a multi-line string expected to contain 5-digit postal codes in either:
@@ -22,13 +22,12 @@ import { TFunction } from 'i18next';
  * Throws an Error if any line is invalid, listing *all* issues found.
  *
  * @param formatted - The multi-line string containing postal code(s).
- * @param t - Translation function for error messages
  * @returns A string of postal code ranges in the format "FROM-TO;"
  */
-export function parsePostcodeRanges(formatted: string, t: TFunction): string {
+export function parsePostcodeRanges(formatted: string): string {
     // Validate input type
     if (typeof formatted !== 'string') {
-        throw new Error(t('message.error.postcode.inputMustBeString'));
+        throw new Error(translationService.translate('message.error.postcode.inputMustBeString'));
     }
 
     // Split into lines, filter out empty lines
@@ -38,7 +37,7 @@ export function parsePostcodeRanges(formatted: string, t: TFunction): string {
 
     // If no valid lines found after filtering
     if (rawLines.length === 0) {
-        throw new Error(t('message.error.postcode.inputMustContainPostalCode'));
+        throw new Error(translationService.translate('message.error.postcode.inputMustContainPostalCode'));
     }
 
     rawLines.forEach((rawLine, index) => {
@@ -50,13 +49,13 @@ export function parsePostcodeRanges(formatted: string, t: TFunction): string {
 
         // If the line is empty after trimming, treat as an error
         if (!line) {
-            errors.push(t('message.error.postcode.emptyLine', { lineNumber }));
+            errors.push(translationService.translate('message.error.postcode.emptyLine', { lineNumber }));
             return;
         }
 
         // 2) Must end with exactly one semicolon, no others allowed
         if (!line.endsWith(';')) {
-            errors.push(t('message.error.postcode.missingSemicolon', { lineNumber }));
+            errors.push(translationService.translate('message.error.postcode.missingSemicolon', { lineNumber }));
             return; // Stop further checks on this line
         }
 
@@ -65,14 +64,19 @@ export function parsePostcodeRanges(formatted: string, t: TFunction): string {
 
         // Check if there's any other semicolon left in 'content'
         if (content.includes(';')) {
-            errors.push(t('message.error.postcode.multipleSemicolons', { lineNumber }));
+            errors.push(translationService.translate('message.error.postcode.multipleSemicolons', { lineNumber }));
             return;
         }
 
         // 3) Split by comma => must have 1 or 2 parts (single or paired code)
         const parts = content.split(',');
         if (parts.length === 0 || parts.length > 2) {
-            errors.push(t('message.error.postcode.invalidCodeCount', { lineNumber, count: parts.length }));
+            errors.push(
+                translationService.translate('message.error.postcode.invalidCodeCount', {
+                    lineNumber,
+                    count: parts.length,
+                }),
+            );
             return;
         }
 
@@ -81,7 +85,7 @@ export function parsePostcodeRanges(formatted: string, t: TFunction): string {
             const trimmedPart = part.trim();
             if (!/^\d{5}$/.test(trimmedPart)) {
                 errors.push(
-                    t('message.error.postcode.invalidPostalCode', {
+                    translationService.translate('message.error.postcode.invalidPostalCode', {
                         lineNumber,
                         partIndex: partIndex + 1,
                         code: trimmedPart,
@@ -114,9 +118,8 @@ export function parsePostcodeRanges(formatted: string, t: TFunction): string {
  * Wraps the parsePostcodeRanges function and returns the properly formatted string.
  *
  * @param rangeString - The postcode range string to validate
- * @param t - Translation function for error messages
  * @returns A validated and formatted postcode range string
  */
-export function validatePostcodeRanges(rangeString: string, t: TFunction): string {
-    return parsePostcodeRanges(rangeString, t);
+export function validatePostcodeRanges(rangeString: string): string {
+    return parsePostcodeRanges(rangeString);
 }

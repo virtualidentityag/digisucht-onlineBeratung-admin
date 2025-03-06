@@ -13,7 +13,7 @@ import { validatePostcodeRanges } from '../../utils/validatePostcodeRanges';
  */
 const updateAgencyPostCodeRange = (id: string, postCodesForm: string, method: string, t: TFunction) => {
     // Validate and transform the postcode ranges before sending
-    const validatedRanges = validatePostcodeRanges(postCodesForm, t);
+    const validatedRanges = validatePostcodeRanges(postCodesForm);
 
     if (method === 'POST') {
         return fetchData({

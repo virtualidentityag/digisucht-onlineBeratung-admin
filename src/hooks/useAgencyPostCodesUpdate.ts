@@ -10,7 +10,7 @@ export const useAgencyPostCodesUpdate = (id: string) => {
     return useMutation(
         (postCodes: string) => {
             // Validate postcodes first
-            validatePostcodeRanges(postCodes, t);
+            validatePostcodeRanges(postCodes);
             // If validation passes, update the postcodes
             return updateAgencyPostCodeRange(id, postCodes, '', t);
         },

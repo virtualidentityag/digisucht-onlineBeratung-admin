@@ -12,7 +12,7 @@ export const PostCodeRanges = () => {
 
     const validatePostcodes = async (_: any, value: string) => {
         try {
-            validatePostcodeRanges(value, t);
+            validatePostcodeRanges(value);
             return await Promise.resolve();
         } catch (error) {
             return Promise.reject(error);
