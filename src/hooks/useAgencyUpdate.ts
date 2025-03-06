@@ -14,7 +14,7 @@ export const useAgencyUpdate = (id: string) => {
     return useMutation(
         (data: Partial<AgencyData>) => {
             if (id === 'add') {
-                return addAgencyData(data);
+                return addAgencyData(data, t);
             }
             return updateAgencyData(
                 agencyData,
