@@ -11,7 +11,7 @@ export const useAgencyPostCodesUpdate = (id: string) => {
         // Validate postcodes first
         validatePostcodeRanges(postCodes, t);
         // If validation passes, update the postcodes
-        return updateAgencyPostCodeRange(id, postCodes, '');
+        return updateAgencyPostCodeRange(id, postCodes, '', t);
     }, {
         onSuccess: () => {
             queryClient.removeQueries(['AGENCY_POST_CODES']);
