@@ -106,7 +106,7 @@ export function parsePostcodeRanges(formatted: string): string {
 
     // If any errors were collected, throw them all at once
     if (errors.length > 0) {
-        throw new Error(`Validation failed:\n${errors.join('\n')}`);
+        throw new Error(`${errors.join('\n')}`);
     }
 
     // If valid, join everything with semicolons and add one final semicolon
