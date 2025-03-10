@@ -1,4 +1,10 @@
-import { twoFactorAuthApp, twoFactorAuthAppEmail, userDataEndpoint, twoFactorAuth } from '../../appConfig';
+import {
+    twoFactorAuthApp,
+    twoFactorAuthAppEmail,
+    userDataEndpoint,
+    twoFactorAuth,
+    consultantTwoFactorAuth,
+} from '../../appConfig';
 import { fetchData, FETCH_ERRORS, FETCH_METHODS } from '../fetchData';
 
 export const apiPutTwoFactorAuthApp = async (body: { secret: string; otp: string }): Promise<any> => {
@@ -50,5 +56,16 @@ export const apiDeleteTwoFactorAuth = async (): Promise<any> => {
     return fetchData({
         url,
         method: FETCH_METHODS.DELETE,
+    });
+};
+
+export const apiDeactivateConsultantTwoFactorAuth = async (consultantId: string): Promise<any> => {
+    const url = consultantTwoFactorAuth(consultantId);
+
+    return fetchData({
+        url,
+        method: FETCH_METHODS.DELETE,
+        skipAuth: false,
+        responseHandling: [FETCH_ERRORS.BAD_REQUEST, FETCH_ERRORS.UNAUTHORIZED, FETCH_ERRORS.CATCH_ALL],
     });
 };

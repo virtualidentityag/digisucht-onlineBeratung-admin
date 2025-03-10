@@ -42,6 +42,8 @@
     "message.counselor.delete.success": "Berater wurde gelöscht.",
     "message.counselor.delete.error.hasSessions": "Berater hat noch aktive Beratungen und konnte nicht gelöscht werden.",
     "message.counselor.delete.error.lastConsultantOfAgency": "Berater konnte nicht gelöscht werden. Letzter Berater einer aktiven Beratungsstelle!",
+    "message.counselor.reset2fa.success": "Die Zwei-Faktor-Authentifizierung wurde erfolgreich zurückgesetzt.",
+    "message.counselor.reset2fa.error": "Fehler beim Zurücksetzen der Zwei-Faktor-Authentifizierung. Bitte versuchen Sie es erneut.",
     "message.agency.add": "Die Beratungsstelle wurde erfolgreich angelegt.",
     "message.agency.updated": "Die Beratungsstelle wurde erfolgreich aktualisiert.",
     "message.agency.delete": "Beratungsstelle wurde gelöscht.",
@@ -355,7 +357,9 @@
     "counselor.modal.headline.delete": "Nutzer wirklich löschen",
     "counselor.modal.headline.edit": "Berater bearbeiten",
     "counselor.modal.headline.add": "Berater hinzufügen",
+    "counselor.modal.headline.reset2fa": "Zwei-Faktor-Authentifizierung zurücksetzen",
     "counselor.modal.text.delete.text": "Wollen Sie diesen Nutzer wirklich löschen? Dieser Vorgang kann nicht rückgängig gemacht werden.",
+    "counselor.modal.text.reset2fa": "Sind Sie sicher, dass Sie die Zwei-Faktor-Authentifizierung für {{name}} zurücksetzen möchten? Dies deaktiviert die aktuelle 2FA-Einrichtung.",
     "counselor.modal.text.delete.error.hasSessions": "Berater hat noch aktive Beratungen. Möchten Sie das Löschen erzwingen?",
     "counselor.modal.text.delete.error.lastConsultantOfAgency": "Letzter Berater einer aktiven Beratungsstelle kann nicht gelöscht werden!",
     "organisations.nameAndSlugTitle": "Benennung und Slogan",
@@ -580,5 +584,7 @@
     "footer.label.privacy": "Datenschutz",
     "footer.label.imprint": "Impressum",
     "errorPages.accessDenied.title": "Schade!",
-    "errorPages.accessDenied.description": "Leider sind Sie nicht berechtigt diese Seite einzusehen. Für mehr Informationen kontaktieren Sie bitte Ihren System Administrator."
+    "errorPages.accessDenied.description": "Leider sind Sie nicht berechtigt diese Seite einzusehen. Für mehr Informationen kontaktieren Sie bitte Ihren System Administrator.",
+    "counselor.reset2fa": "2FA zurücksetzen",
+    "btn.reset.uppercase": "ZURÜCKSETZEN"
 }
