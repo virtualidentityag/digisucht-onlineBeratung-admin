@@ -12,6 +12,6 @@ export const useConsultantTwoFactorDeactivate = ({ onSuccess, onError }: Consult
         {
             onSuccess,
             onError,
-        }
+        },
     );
-}; 
+};
