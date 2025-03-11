@@ -95,6 +95,22 @@ export function parsePostcodeRanges(formatted: string): string {
             return trimmedPart;
         });
 
+        // 5) If it's a range (two postcodes), validate that the second is greater than the first
+        if (codes.length === 2 && /^\d{5}$/.test(codes[0]) && /^\d{5}$/.test(codes[1])) {
+            const firstCode = parseInt(codes[0], 10);
+            const secondCode = parseInt(codes[1], 10);
+
+            if (secondCode <= firstCode) {
+                errors.push(
+                    translationService.translate('message.error.postcode.invalidRange', {
+                        lineNumber,
+                        firstCode: codes[0],
+                        secondCode: codes[1],
+                    }),
+                );
+            }
+        }
+
         // Build the "FROM-TO" string
         // If there's only 1 code, "TO" is the same as "FROM"
         if (codes.length === 1) {
