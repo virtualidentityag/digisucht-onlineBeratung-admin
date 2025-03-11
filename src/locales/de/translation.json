@@ -150,6 +150,7 @@
     "agency.form.registrationSettings.fromPostCode": "Postleitzahl von",
     "agency.form.registrationSettings.toPostCode": "Postleitzahl bis",
     "agency.form.registrationSettings.newPostCodeLabel": "PLZ- Gebiete:",
+    "agency.form.registrationSettings.postCodePlaceholder": "z.B. 10115,10117; 10119,10120;",
     "agency.form.registrationSettings.addNewPostCode": "WEITERE HINZUFÜGEN",
     "agency.form.registrationSettings.autoSelectPostcodeWarning": "Die Funktion zur Auswahl von Postleitzahlenbereichen wird aufgrund der Systemkonfiguration in der Registrierung derzeit nicht unterstützt.",
     "agency.add.general.headline": "Zur Übersicht",
@@ -268,7 +269,7 @@
     "tenants.list.mainTenantTag": "Haupt",
     "tenants.list.empty": "Keine Daten vorhanden",
     "tenants.list.new": "Neu",
-    "tenants.list.deleteModal.title": "Möchten Sie wirklich “Sozialberatung München” löschen?",
+    "tenants.list.deleteModal.title": "Möchten Sie wirklich \"Sozialberatung München\" löschen?",
     "tenants.list.deleteModal.description": "Wenn Sie den Mandanten löschen, werden automatisch auch alle Berater und Beraterinnen sowie Ratsuchende und deren Daten gelöscht.",
     "tenants.list.deleteModal.confirm": "Löschen",
     "tenants.list.deleteModal.cancel": "Abbrechen",
@@ -434,7 +435,7 @@
     "profile.title.text": "Hier sind Ihre Profilinformationen",
     "profile.privateData.title": "Private Daten",
     "profile.privateData.email": "E-Mail Adresse",
-    "profile.privateData.success": "Ihre privaten Daten wurden aktualisiert.",
+    "profile.privateData.success": "Ihre privaten Daten wurden aktualisiert.",
     "profile.passwordChange.title": "Passwort",
     "profile.passwordChange.info": "Wenn Sie möchten, können Sie hier Ihr Passwort ändern. Geben Sie erst Ihr aktuelles Passwort ein, um ein Neues festzulegen.",
     "profile.passwordChange.passwordRequirementsInfo": "Ihr Passwort muss folgende Kriterien erfüllen, um eine geschützte Beratung zu garantieren:",
@@ -587,4 +588,11 @@
     "errorPages.accessDenied.description": "Leider sind Sie nicht berechtigt diese Seite einzusehen. Für mehr Informationen kontaktieren Sie bitte Ihren System Administrator.",
     "counselor.reset2fa": "2FA zurücksetzen",
     "btn.reset.uppercase": "ZURÜCKSETZEN"
+    "message.error.postcode.inputMustBeString": "Die Eingabe muss eine Zeichenkette sein",
+    "message.error.postcode.inputMustContainPostalCode": "Die Eingabe muss mindestens eine Postleitzahl enthalten",
+    "message.error.postcode.emptyLine": "Zeile {{lineNumber}} ist leer. Jede Zeile muss eine Postleitzahl gefolgt von einem Semikolon enthalten.",
+    "message.error.postcode.missingSemicolon": "Zeile {{lineNumber}} muss mit genau einem Semikolon enden (z.B. \"12345;\").",
+    "message.error.postcode.multipleSemicolons": "Zeile {{lineNumber}} hat mehr als ein Semikolon. Nur ein Semikolon ist erlaubt, am Ende.",
+    "message.error.postcode.invalidCodeCount": "Zeile {{lineNumber}} hat {{count}} Code(s). Nur 1 oder 2 Codes pro Zeile erlaubt.",
+    "message.error.postcode.invalidPostalCode": "Zeile {{lineNumber}}, Teil {{partIndex}}: \"{{code}}\" muss eine 5-stellige Postleitzahl sein."
 }
