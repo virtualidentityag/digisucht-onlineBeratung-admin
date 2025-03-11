@@ -1,4 +1,4 @@
-import { TFunction } from 'i18next';
+// Remove the TFunction import since it's no longer used
 import { FETCH_ERRORS, FETCH_METHODS, fetchData } from '../fetchData';
 import { agencyEndpointBase } from '../../appConfig';
 import updateAgencyPostCodeRange from './updateAgencyPostCodeRange';
@@ -44,10 +44,9 @@ async function createAgency(agencyDataRequestBody: string) {
 /**
  * add new agency
  * @param agencyData
- * @param t - Translation function for error messages
  * @return data
  */
-async function addAgencyData(agencyData: Record<string, any>, t: TFunction) {
+async function addAgencyData(agencyData: Record<string, any>) {
     const consultingTypeId =
         agencyData.consultingType !== null && agencyData.consultingType !== undefined
             ? parseInt(agencyData.consultingType, 10)

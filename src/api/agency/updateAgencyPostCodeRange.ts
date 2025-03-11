@@ -1,4 +1,3 @@
-import { TFunction } from 'i18next';
 import { FETCH_ERRORS, fetchData } from '../fetchData';
 import { agencyPostcodeRangeEndpointBase } from '../../appConfig';
 import { validatePostcodeRanges } from '../../utils/validatePostcodeRanges';
