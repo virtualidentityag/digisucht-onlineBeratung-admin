@@ -57,7 +57,7 @@ async function addAgencyData(agencyData: Record<string, any>, t: TFunction) {
     const agencyCreationResponse = await createAgency(agencyDataRequestBody);
     // eslint-disable-next-line no-underscore-dangle
     const agencyResponseData = agencyCreationResponse._embedded;
-    await updateAgencyPostCodeRange(agencyResponseData.id, agencyData.postCodes || '', 'POST', t);
+    await updateAgencyPostCodeRange(agencyResponseData.id, agencyData.postCodes || '', 'POST');
 
     return agencyResponseData;
 }

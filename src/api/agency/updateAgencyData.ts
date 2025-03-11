@@ -56,7 +56,7 @@ export const updateAgencyData = async (agencyModel: AgencyData, formInput: Agenc
     }).then(async (response) => {
         // Update postcode ranges if provided
         if (formInput.postCodes) {
-            await updateAgencyPostCodeRange(agencyId, formInput.postCodes, '', t);
+            await updateAgencyPostCodeRange(agencyId, formInput.postCodes, '');
         }
         // eslint-disable-next-line no-underscore-dangle
         return response?._embedded;
