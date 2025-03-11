@@ -8,10 +8,9 @@ import { validatePostcodeRanges } from '../../utils/validatePostcodeRanges';
  * @param id - agency id
  * @param postCodesForm - String containing the postcode ranges
  * @param method - HTTP method to use
- * @param t - Translation function for error messages
  * @return data
  */
-const updateAgencyPostCodeRange = (id: string, postCodesForm: string, method: string, t: TFunction) => {
+const updateAgencyPostCodeRange = (id: string, postCodesForm: string, method: string) => {
     // Validate and transform the postcode ranges before sending
     const validatedRanges = validatePostcodeRanges(postCodesForm);
 
