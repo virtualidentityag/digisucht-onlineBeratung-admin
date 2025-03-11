@@ -12,7 +12,7 @@ export const useAgencyPostCodesUpdate = (id: string) => {
             // Validate postcodes first
             validatePostcodeRanges(postCodes);
             // If validation passes, update the postcodes
-            return updateAgencyPostCodeRange(id, postCodes, '', t);
+            return updateAgencyPostCodeRange(id, postCodes, '');
         },
         {
             onSuccess: () => {
