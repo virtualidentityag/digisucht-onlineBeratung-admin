@@ -587,7 +587,7 @@
     "errorPages.accessDenied.title": "Schade!",
     "errorPages.accessDenied.description": "Leider sind Sie nicht berechtigt diese Seite einzusehen. Für mehr Informationen kontaktieren Sie bitte Ihren System Administrator.",
     "counselor.reset2fa": "2FA zurücksetzen",
-    "btn.reset.uppercase": "ZURÜCKSETZEN"
+    "btn.reset.uppercase": "ZURÜCKSETZEN",
     "message.error.postcode.inputMustBeString": "Die Eingabe muss eine Zeichenkette sein",
     "message.error.postcode.inputMustContainPostalCode": "Die Eingabe muss mindestens eine Postleitzahl enthalten",
     "message.error.postcode.emptyLine": "Zeile {{lineNumber}} ist leer. Jede Zeile muss eine Postleitzahl gefolgt von einem Semikolon enthalten.",
