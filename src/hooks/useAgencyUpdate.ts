@@ -14,14 +14,13 @@ export const useAgencyUpdate = (id: string) => {
     return useMutation(
         (data: Partial<AgencyData>) => {
             if (id === 'add') {
-                return addAgencyData(data, t);
+                return addAgencyData(data);
             }
             return updateAgencyData(
                 agencyData,
                 mergeWith({ ...agencyData }, data, (objValue, srcValue) => {
                     return objValue instanceof Array ? srcValue : undefined;
-                }),
-                t,
+                })
             );
         },
         {
