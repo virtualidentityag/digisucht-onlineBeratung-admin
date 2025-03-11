@@ -1,4 +1,4 @@
-import { TFunction } from 'i18next';
+// Remove the TFunction import since it's no longer used
 import { FETCH_ERRORS, FETCH_METHODS, fetchData, FETCH_SUCCESS } from '../fetchData';
 import { agencyEndpointBase } from '../../appConfig';
 import { AgencyData } from '../../types/agency';
@@ -10,10 +10,9 @@ import updateAgencyPostCodeRange from './updateAgencyPostCodeRange';
  * update agency
  * @param agencyModel - agency data from backend
  * @param formInput - input data from form
- * @param t - Translation function for error messages
  * @return data
  */
-export const updateAgencyData = async (agencyModel: AgencyData, formInput: AgencyData, t: TFunction) => {
+export const updateAgencyData = async (agencyModel: AgencyData, formInput: AgencyData) => {
     const agencyId = agencyModel.id;
     if (agencyId == null) {
         throw Error('agency id must be set');

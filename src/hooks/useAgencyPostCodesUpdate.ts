@@ -1,11 +1,9 @@
 import { useMutation, useQueryClient } from 'react-query';
-import { useTranslation } from 'react-i18next';
 import updateAgencyPostCodeRange from '../api/agency/updateAgencyPostCodeRange';
 import { validatePostcodeRanges } from '../utils/validatePostcodeRanges';
 
 export const useAgencyPostCodesUpdate = (id: string) => {
     const queryClient = useQueryClient();
-    const { t } = useTranslation();
 
     return useMutation(
         (postCodes: string) => {
