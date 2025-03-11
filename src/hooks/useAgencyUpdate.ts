@@ -1,6 +1,5 @@
 import mergeWith from 'lodash.mergewith';
 import { useMutation, useQueryClient } from 'react-query';
-import { useTranslation } from 'react-i18next';
 import addAgencyData from '../api/agency/addAgencyData';
 import { updateAgencyData } from '../api/agency/updateAgencyData';
 import { AgencyData } from '../types/agency';
@@ -9,7 +8,6 @@ import { useAgencyData } from './useAgencyData';
 export const useAgencyUpdate = (id: string) => {
     const queryClient = useQueryClient();
     const { data: agencyData } = useAgencyData({ id, enabled: id !== 'add' });
-    const { t } = useTranslation();
 
     return useMutation(
         (data: Partial<AgencyData>) => {
@@ -20,7 +18,7 @@ export const useAgencyUpdate = (id: string) => {
                 agencyData,
                 mergeWith({ ...agencyData }, data, (objValue, srcValue) => {
                     return objValue instanceof Array ? srcValue : undefined;
-                })
+                }),
             );
         },
         {
