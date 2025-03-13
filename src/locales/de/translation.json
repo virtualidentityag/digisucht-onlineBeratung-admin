@@ -73,6 +73,8 @@
     "btn.cancel": "Abbrechen",
     "btn.cancel.uppercase": "ABBRECHEN",
     "btn.ok.uppercase": "SPEICHERN",
+    "btn.close.uppercase": "SCHLIESSEN",
+    "btn.reset.uppercase": "ZURÜCKSETZEN",
     "notice": "Hinweis:",
     "edit": "Bearbeiten",
     "cancel": "Abbrechen",
@@ -353,6 +355,7 @@
     "counselor.absent": "Abwesend",
     "counselor.absenceMessage": "Abwesenheitsnotiz",
     "counselor.isGroupChatConsultant": "Dem Benutzer erlauben, Gruppenchats zu erstellen",
+    "counselor.reset2fa": "2FA zurücksetzen",
     "counselor.title.text": "Erstellen und bearbeiten Sie Daten Ihrer Berater",
     "counselor.modal.headline.delete": "Nutzer wirklich löschen",
     "counselor.modal.headline.edit": "Berater bearbeiten",
@@ -585,6 +588,6 @@
     "footer.label.imprint": "Impressum",
     "errorPages.accessDenied.title": "Schade!",
     "errorPages.accessDenied.description": "Leider sind Sie nicht berechtigt diese Seite einzusehen. Für mehr Informationen kontaktieren Sie bitte Ihren System Administrator.",
-    "counselor.reset2fa": "2FA zurücksetzen",
-    "btn.reset.uppercase": "ZURÜCKSETZEN"
+    "error.title": "Fehler",
+    "success.title": "Erfolg"
 }
