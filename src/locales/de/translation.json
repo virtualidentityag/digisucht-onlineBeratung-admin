@@ -584,10 +584,9 @@
     "errorPages.accessDenied.description": "Leider sind Sie nicht berechtigt diese Seite einzusehen. Für mehr Informationen kontaktieren Sie bitte Ihren System Administrator.",
     "message.error.postcode.inputMustBeString": "Die Eingabe muss eine Zeichenkette sein",
     "message.error.postcode.inputMustContainPostalCode": "Die Eingabe muss mindestens eine Postleitzahl enthalten",
-    "message.error.postcode.emptyLine": "Zeile {{lineNumber}} ist leer. Jede Zeile muss eine Postleitzahl gefolgt von einem Semikolon enthalten.",
-    "message.error.postcode.missingSemicolon": "Zeile {{lineNumber}} muss mit genau einem Semikolon enden (z.B. \"12345;\").",
-    "message.error.postcode.multipleSemicolons": "Zeile {{lineNumber}} hat mehr als ein Semikolon. Nur ein Semikolon ist erlaubt, am Ende.",
-    "message.error.postcode.invalidCodeCount": "Zeile {{lineNumber}} hat {{count}} Code(s). Nur 1 oder 2 Codes pro Zeile erlaubt.",
-    "message.error.postcode.invalidPostalCode": "Zeile {{lineNumber}}, Teil {{partIndex}}: \"{{code}}\" muss eine 5-stellige Postleitzahl sein.",
-    "message.error.postcode.invalidRange": "Zeile {{lineNumber}}: Die zweite Postleitzahl ({{secondCode}}) muss größer sein als die erste Postleitzahl ({{firstCode}})."
+    "message.error.postcode.emptyLine": "Zeile {{lineNumber}} ist leer. Jede Zeile muss mindestens eine Postleitzahl enthalten.",
+    "message.error.postcode.emptyEntry": "Zeile {{lineNumber}}, Eintrag {{entryNumber}} ist leer. Jeder Eintrag muss eine Postleitzahl enthalten.",
+    "message.error.postcode.invalidCodeCount": "Zeile {{lineNumber}}, Eintrag {{entryNumber}} hat {{count}} Code(s). Nur 1 oder 2 Codes pro Eintrag erlaubt.",
+    "message.error.postcode.invalidPostalCode": "Zeile {{lineNumber}}, Eintrag {{entryNumber}}, Teil {{partIndex}}: \"{{code}}\" muss eine 5-stellige Postleitzahl sein.",
+    "message.error.postcode.invalidRange": "Zeile {{lineNumber}}, Eintrag {{entryNumber}}: Die zweite Postleitzahl ({{secondCode}}) muss größer sein als die erste Postleitzahl ({{firstCode}})."
 }
