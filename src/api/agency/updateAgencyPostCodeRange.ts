@@ -1,23 +1,25 @@
 import { FETCH_ERRORS, fetchData } from '../fetchData';
 import { agencyPostcodeRangeEndpointBase } from '../../appConfig';
-import { PostCodeRange } from './getAgencyPostCodeRange';
+import { validatePostcodeRanges } from '../../utils/validatePostcodeRanges';
 
 /**
  * add new agency postcode range
- * @param agencyData
+ * @param id - agency id
+ * @param postCodesForm - String containing the postcode ranges
+ * @param method - HTTP method to use
  * @return data
  */
-const updateAgencyPostCodeRange = (id: string, postCodesForm: PostCodeRange[], method: string) => {
-    const postcodeRangeTmp = postCodesForm?.map((postCode) => `${postCode.from}-${postCode.until}`).join(';');
-    const postcodeRange = `${postcodeRangeTmp || '00000-99999'};`;
-    // const postcodeRange = getPostCodeRangeRequestBodyFromForm(formData);
+const updateAgencyPostCodeRange = (id: string, postCodesForm: string, method: string) => {
+    // Validate and transform the postcode ranges before sending
+    const validatedRanges = validatePostcodeRanges(postCodesForm);
+
     if (method === 'POST') {
         return fetchData({
             url: `${agencyPostcodeRangeEndpointBase}/${id}`,
             method: 'POST',
             skipAuth: false,
             responseHandling: [FETCH_ERRORS.CATCH_ALL],
-            bodyData: JSON.stringify({ postcodeRanges: postcodeRange }),
+            bodyData: JSON.stringify({ postcodeRanges: validatedRanges }),
         }).then(() => id);
     }
     return fetchData({
@@ -33,7 +35,7 @@ const updateAgencyPostCodeRange = (id: string, postCodesForm: PostCodeRange[], m
                 method: 'POST',
                 skipAuth: false,
                 responseHandling: [FETCH_ERRORS.CATCH_ALL],
-                bodyData: JSON.stringify({ postcodeRanges: postcodeRange }),
+                bodyData: JSON.stringify({ postcodeRanges: validatedRanges }),
             });
         });
 };

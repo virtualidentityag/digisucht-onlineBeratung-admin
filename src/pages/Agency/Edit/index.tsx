@@ -3,7 +3,6 @@ import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router';
 import ErrorOutlinedIcon from '@mui/icons-material/ErrorOutlined';
-import { PostCodeRange } from '../../../api/agency/getAgencyPostCodeRange';
 import routePathNames from '../../../appConfig';
 import { Page } from '../../../components/Page';
 import { useFeatureContext } from '../../../context/FeatureContext';
@@ -25,8 +24,8 @@ import { ContactSettings } from './components/ContactSettings';
 import styles from '../../../components/Page/styles.module.scss';
 import { AgencyLogo } from './components/AgencyLogo';
 
-function hasOnlyDefaultRangeDefined(data: PostCodeRange[]) {
-    return data?.length === 0 || (data?.length === 1 && data[0].from === '00000' && data[0].until === '99999');
+function hasOnlyDefaultRangeDefined(range: string) {
+    return !range || range === '00000,99999;';
 }
 
 const DEFAULT_MIN_AGE = 18;
@@ -86,6 +85,7 @@ export const AgencyPageEdit = () => {
             topicIds: formData.topicIds?.map(({ value }) => value),
             offline: !formData.online,
             counsellingRelations: formData.counsellingRelations?.map(({ value }) => value),
+            postCodes: formData.postCodeRangesActive ? formData.postCodes : '00000,99999;',
         };
 
         mutate(newFormData, {
@@ -151,10 +151,10 @@ export const AgencyPageEdit = () => {
             <Form
                 initialValues={{
                     ...agencyData,
-                    postCodes: postCodes?.length > 0 ? postCodes : [{ from: '00000', until: '99999' }],
+                    postCodes: postCodes || '00000,99999;',
                     ...demographicsInitialValues,
                     ...counsellingRelationsInitialValues,
-                    postCodeRangesActive: !hasOnlyDefaultRangeDefined(postCodes || []),
+                    postCodeRangesActive: !hasOnlyDefaultRangeDefined(postCodes || ''),
                     online: agencyData?.id ? !agencyData?.offline : false,
                     topicIds: convertToOptions(agencyData?.topics, 'name', 'id', true),
                 }}

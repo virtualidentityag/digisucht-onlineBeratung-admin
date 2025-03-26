@@ -39,6 +39,7 @@ export const consultantsForAgencyEventTypes = (agencyId: string, eventTypeId: nu
     `${mainURL}/service/appointservice/agencies/${agencyId}/eventTypes/${eventTypeId}/`;
 export const consultantsForAgencyEventTypesNew = (agencyId: string) =>
     `${mainURL}/service/appointservice/agencies/${agencyId}/eventTypes`;
+export const consultantTwoFactorAuth = (consultantId: string) => `${mainURL}/service/useradmin/2fa/${consultantId}`;
 export const consultingTypeEndpoint = `${mainURL}/service/consultingtypes`;
 export const counselorEndpoint = `${mainURL}/service/useradmin/consultants`;
 export const diocesesEndpoint = `${mainURL}/service/agencyadmin/dioceses`;

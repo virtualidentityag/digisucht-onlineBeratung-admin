@@ -13,6 +13,8 @@ interface FormTextAreaFieldProps {
     required?: boolean;
     name?: string;
     rules?: Rule[];
+    rows?: number;
+    disabled?: boolean;
 }
 
 export const FormTextAreaField = ({
@@ -22,18 +24,26 @@ export const FormTextAreaField = ({
     required,
     placeholderKey,
     rules = [],
+    rows = 3,
+    disabled,
 }: FormTextAreaFieldProps) => {
     const { t } = useTranslation();
     const contextDisabled = useContext(DisabledContext);
+    const isDisabled = disabled || contextDisabled;
 
     return (
         <Form.Item
             label={t(labelKey)}
             name={name}
             rules={[{ required }, ...rules]}
-            className={classNames(className, styles.item, { [styles.disabled]: contextDisabled })}
+            className={classNames(className, styles.item, { [styles.disabled]: isDisabled })}
         >
-            <Input.TextArea className={styles.textarea} placeholder={placeholderKey && t(placeholderKey)} rows={3} />
+            <Input.TextArea
+                className={styles.textarea}
+                placeholder={placeholderKey && t(placeholderKey)}
+                rows={rows}
+                disabled={isDisabled}
+            />
         </Form.Item>
     );
 };
