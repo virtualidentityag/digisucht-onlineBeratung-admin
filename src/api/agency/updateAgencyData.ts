@@ -1,3 +1,4 @@
+// Remove the TFunction import since it's no longer used
 import { FETCH_ERRORS, FETCH_METHODS, fetchData, FETCH_SUCCESS } from '../fetchData';
 import { agencyEndpointBase } from '../../appConfig';
 import { AgencyData } from '../../types/agency';
@@ -52,7 +53,10 @@ export const updateAgencyData = async (agencyModel: AgencyData, formInput: Agenc
         responseHandling: [FETCH_ERRORS.CATCH_ALL, FETCH_SUCCESS.CONTENT],
         bodyData: JSON.stringify(agencyDataRequestBody),
     }).then(async (response) => {
-        await updateAgencyPostCodeRange(agencyId, formInput.postCodes, '');
+        // Update postcode ranges if provided
+        if (formInput.postCodes) {
+            await updateAgencyPostCodeRange(agencyId, formInput.postCodes, '');
+        }
         // eslint-disable-next-line no-underscore-dangle
         return response?._embedded;
     });

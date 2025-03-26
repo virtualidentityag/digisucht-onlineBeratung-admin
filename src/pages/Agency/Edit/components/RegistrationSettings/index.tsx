@@ -1,14 +1,12 @@
 import { Alert, Divider, Form } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
-import { useEffect, useState } from 'react';
 import { Card } from '../../../../../components/Card';
 import { FormRadioGroupField } from '../../../../../components/FormRadioGroupField';
 import { FormSwitchField } from '../../../../../components/FormSwitchField';
 import { useAgencyHasConsultants } from '../../../../../hooks/useAgencyHasConsultants';
 import { PostCodeRanges } from './PostCodeRanges';
 import styles from './styles.module.scss';
-import getConsultingTypes from '../../../../../api/consultingtype/getConsultingTypes';
 
 interface RegistrationSettingsProps {
     consultingTypeId: string;
@@ -19,16 +17,6 @@ export const RegistrationSettings = ({ consultingTypeId }: RegistrationSettingsP
     const { id } = useParams();
     const postCodeRangesActive = Form.useWatch('postCodeRangesActive');
     const { data: hasConsultants, isLoading } = useAgencyHasConsultants({ id });
-    const [showAutoselectPostcodeWarning, setShowAutoselectPostcodeWarning] = useState(false);
-
-    useEffect(() => {
-        if (!consultingTypeId) return;
-
-        getConsultingTypes().then((cTypes) => {
-            const consultingType = cTypes.find((cType) => cType.id === consultingTypeId);
-            setShowAutoselectPostcodeWarning(consultingType?.registration.autoSelectPostcode);
-        });
-    }, [consultingTypeId]);
 
     return (
         <Card titleKey="agency.form.registrationSettings.title" isLoading={isLoading}>
@@ -48,14 +36,6 @@ export const RegistrationSettings = ({ consultingTypeId }: RegistrationSettingsP
                 disabled={id === 'add' || !hasConsultants}
             />
             <Divider />
-
-            {showAutoselectPostcodeWarning && (
-                <Alert
-                    className={styles.warning}
-                    type="warning"
-                    description={t('agency.form.registrationSettings.autoSelectPostcodeWarning')}
-                />
-            )}
 
             <FormRadioGroupField
                 className={styles.radioGroup}
