@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/compare/v0.2.3...v0.2.4) (2025-03-26)
+
+
+### Features
+
+* add 2FA Reset ([93be3f9](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/93be3f9c05f35b4cc973f4077c7373428ea29cc7))
+* easier zip code input in admin panel, initial commit ([56341bf](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/56341bf2846e2ce19b351ce7d03b8a01e3a80f1f)), closes [#DELPHI-193](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/issues/DELPHI-193)
+* easier zip code input in admin panel, typo fix ([3ea8aed](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/3ea8aedf9589a407a0d48ea524966a3b659a6066)), closes [#DELPHI-193](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/issues/DELPHI-193)
+
+
+### Bug Fixes
+
+*  zip code update functionality ([05633a7](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/05633a7bf92c6433b29a458c14744a29e217392f)), closes [#DELPHI-193](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/issues/DELPHI-193)
+* add missing translations ([a31c250](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/a31c250095d6ebc28b4f0e1587287df310f3fff1))
+* add post code proper range validation ([9e940b3](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/9e940b374d1f5724cb51dca27864aa20b4ecc327))
+* add translation for zip code validation messages #DELPHI-193 ([fcd5e8a](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/fcd5e8aac14638516a83abf31748ffb849ab0049)), closes [#DELPHI-193](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/issues/DELPHI-193)
+* add translation service ([c711511](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/c711511c6e8170d032546cfda87f60436395cacc))
+* build type errors ([a9ed1e3](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/a9ed1e35202cf5a6d648d58877b7cb1f652e7412)), closes [#DELPHI-193](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/issues/DELPHI-193)
+* change wrong 2FA reset endpoint URI, enhance 2FA reset UX ([209bf8d](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/209bf8d6ddf39e93a2a52180e09cd55f82e6c747))
+* formatting ([67cfd24](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/67cfd244ac5527604d335be1ac99bf36aa4c7e21)), closes [#DELPHI-193](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/issues/DELPHI-193)
+* linter ([ef5e247](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/ef5e247b5ac637c8c945ccd3836d94ca43fc507c))
+* linter unused variables ([bfbf65c](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/bfbf65c0bc6fd6eff9557ec64d694b4138562ef6))
+* linter unused variables ([78aaa59](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/78aaa59fff2810e72d361558a528c46e480db5b3))
+* linter, prettier ([df9ba3f](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/df9ba3fbe74331ac9a00c76ef25527f2b47f67c7))
+* prettier ([99e973a](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/99e973a331ab8e30babd0ddc3954ed11df6d73af))
+* prettier ([29ffb04](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/29ffb04d94295618e193fdd500a6031a54a98585)), closes [#DELPHI-193](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/issues/DELPHI-193)
+* remove English text ([f88f18f](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/f88f18fd4e00817c2ff208c94d1edfebacdc81b5)), closes [#DELPHI-193](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/issues/DELPHI-193)
+* remove the warning message ([be08e13](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/be08e131e0dc9566b5dbe09c7cd2db80590c4394))
+* remove unused variables ([198f5c0](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/198f5c0200cbfe10d1a6704ef38b70d92c4c5f1c))
+* remove unused variables ([f9ad8ce](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/f9ad8ce94e5191ad4efd2c516834dab7775aea1b))
+* remove unused variables ([387e5b4](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/387e5b4f47161e077adc93be22bb83214e74a256))
+* translation.json syntax error ([fe3fb46](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/fe3fb464e92b0968ad92e7f49b5c2d1d63e06ff3))
+* TS linter errors ([67d26cf](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/67d26cf31352ed7449824e176e568a522fcefb2f)), closes [#DELPHI-193](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/issues/DELPHI-193)
+* TS linter errors ([35c2327](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/35c2327338a11f6868c02f8569140af835c7036d)), closes [#DELPHI-193](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/issues/DELPHI-193)
+* update the bulk ZIP input validator ([eff3e9f](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/eff3e9f559d9ec70863c268c1fd72a1cdb3f7d18))
+
 ### [0.2.3](https://github.com/virtualidentityag/vi-saas-admin/compare/v0.2.2...v0.2.3) (2024-08-06)
 
 
