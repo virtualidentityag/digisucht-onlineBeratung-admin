@@ -8,6 +8,7 @@ import { useAgencyData } from './useAgencyData';
 export const useAgencyUpdate = (id: string) => {
     const queryClient = useQueryClient();
     const { data: agencyData } = useAgencyData({ id, enabled: id !== 'add' });
+
     return useMutation(
         (data: Partial<AgencyData>) => {
             if (id === 'add') {

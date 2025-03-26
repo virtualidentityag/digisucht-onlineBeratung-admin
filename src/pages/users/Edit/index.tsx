@@ -1,6 +1,6 @@
 import { message, Space } from 'antd';
 import { useForm, useWatch } from 'antd/lib/form/Form';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router';
 import { FETCH_ERRORS, X_REASON } from '../../../api/fetchData';
@@ -22,6 +22,7 @@ import { decodeUsername } from '../../../utils/encryptionHelpers';
 import { FormSwitchField } from '../../../components/FormSwitchField';
 import { useFeatureContext } from '../../../context/FeatureContext';
 import { FeatureFlag } from '../../../enums/FeatureFlag';
+import { Reset2FAModal } from '../../../components/Reset2FAModal';
 
 export const UserEditOrAdd = () => {
     const navigate = useNavigate();
@@ -30,6 +31,7 @@ export const UserEditOrAdd = () => {
     const { t } = useTranslation();
     const { isEnabled } = useFeatureContext();
     const { typeOfUsers, id } = useParams<{ id: string; typeOfUsers: TypeOfUser }>();
+    const [showReset2FAModal, setShowReset2FAModal] = useState(false);
     const { data: consultantsResponse, isLoading: isLoadingConsultants } = useConsultantsOrAdminsData({
         search: id,
         typeOfUser: typeOfUsers,
@@ -89,6 +91,18 @@ export const UserEditOrAdd = () => {
     return (
         <Page isLoading={isLoadingConsultants || isLoading}>
             <Page.Back path={`/admin/users/${typeOfUsers}`} titleKey="agency.add.general.headline" />
+
+            {isEditing && typeOfUsers === 'consultants' && can(PermissionAction.Update, Resource.Consultant) && (
+                <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'flex-end' }}>
+                    <Button
+                        item={{
+                            label: t('counselor.reset2fa'),
+                            type: BUTTON_TYPES.SECONDARY,
+                        }}
+                        buttonHandle={() => setShowReset2FAModal(true)}
+                    />
+                </div>
+            )}
 
             <CardEditable
                 isLoading={isLoading}
@@ -173,6 +187,14 @@ export const UserEditOrAdd = () => {
                         buttonHandle={() => form.submit()}
                     />
                 </div>
+            )}
+
+            {showReset2FAModal && (
+                <Reset2FAModal
+                    consultantId={id}
+                    consultantName={`${singleData?.firstname} ${singleData?.lastname}`}
+                    onClose={() => setShowReset2FAModal(false)}
+                />
             )}
         </Page>
     );

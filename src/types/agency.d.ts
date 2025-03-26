@@ -1,4 +1,3 @@
-import { PostCodeRange } from '../api/agency/getAgencyPostCodeRange';
 import { CounsellingRelation } from '../enums/CounsellingRelation';
 import { TopicData } from './topic';
 
@@ -35,7 +34,7 @@ export interface AgencyData {
     status: string | undefined;
     deleteDate: string | undefined;
     dioceseId?: string;
-    postCodes?: PostCodeRange[];
+    postCodes?: string;
     dataProtection: {
         dataProtectionResponsibleEntity:
             | 'AGENCY_RESPONSIBLE'
