@@ -25,21 +25,22 @@ export const Statistic = () => {
             .then((registrationStatistics: RegistrationStatistics[]) => {
                 const data = [];
                 data.push([
-                    'tenant',
-                    'agency',
+                    'tenant_name',
+                    'agency_name',
                     'user_id',
-                    'datum_registrierung',
-                    'alter',
-                    'geschl',
-                    'betrgru',
-                    'Themen in der Registrierung',
-                    'relevant',
-                    'plz',
-                    'betend',
-                    'referer',
-                    'termine_rat',
-                    'videoberatung_rat',
-                    'nachrichten_ber',
+                    'date_register',
+                    'date_last_activity',
+                    'date_archive_or_deleted',
+                    'user_age',
+                    'user_gender',
+                    'registration_consulting_reason',
+                    'registration_consulting_topic',
+                    'registration_consulting_topic_main',
+                    'registration_zip',
+                    'registration_referer',
+                    'activity_appointments',
+                    'activity_calls',
+                    'activity_messages',
                 ]);
                 registrationStatistics.forEach(function createCsvLine(entry) {
                     const csvLine: string[] = [];
@@ -57,13 +58,14 @@ export const Statistic = () => {
                     csvLine.push(entry.agencyName);
                     csvLine.push(entry.userId);
                     csvLine.push(entry.registrationDate);
+                    csvLine.push(entry.lastActivityDate);
+                    csvLine.push(entry.endDate);
                     csvLine.push(entry.age ? entry.age.toString() : '');
                     csvLine.push(entry.gender || '');
                     csvLine.push(entry.counsellingRelation || '');
                     csvLine.push(formattedTopics);
                     csvLine.push(entry.mainTopicInternalAttribute || '');
                     csvLine.push(entry.postalCode);
-                    csvLine.push(entry.endDate);
                     csvLine.push(entry.referer ? decodeURI(entry.referer) : '');
                     csvLine.push(entry.appointmentsBookedCount ? entry.appointmentsBookedCount.toString() : '');
                     csvLine.push(entry.attendedVideoCallsCount ? entry.attendedVideoCallsCount.toString() : '');
