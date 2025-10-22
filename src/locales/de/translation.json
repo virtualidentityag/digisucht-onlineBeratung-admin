@@ -489,7 +489,7 @@
     "statistic.select.value.lastYear": "vergangenen Jahres",
     "statistic.download.text": "Ihre Statistik können Sie hier herunterladen:",
     "statistic.download.link": "DOWNLOAD EXCEL DATEI",
-    "statistic.download.filename": "RegistrationData",
+    "statistic.download.filename": "OnlineCounseling-Statistics",
     "twoFactorAuth.title": "2-Faktor-Authentifizierung",
     "twoFactorAuth.subtitle": "Nutzen Sie eine weitere App für die Anmeldung mit Ihrem Online-Beratung & Hilfe Konto. Dadurch ist Ihr Konto sicherer vor einem möglichen unbefugtem Zugriff.",
     "twoFactorAuth.switch.active.label": "2-Faktor-Authentifizierung aktiviert",

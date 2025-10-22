@@ -16,6 +16,7 @@ export interface RegistrationStatistics {
     topicsInternalAttributes: string[];
     mainTopicInternalAttribute: string | null;
     postalCode: string;
-    endDate: string;
+    endDate: string | null;
+    lastActivityDate: string | null;
     referer: string | null;
 }
