@@ -1,6 +1,6 @@
 {
   "name": "adminpanel",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "private": true,
   "homepage": "http://tenant1.onlineberatung.local/admin",
   "dependencies": {

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.6](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/compare/v0.2.5...v0.2.6) (2025-10-22)
+
+
+### Features
+
+* adjust statistic header names, add date_last_activity and change filename of the excel export ([06c8f44](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/commit/06c8f44439b28ddf6c1a360ca4fc32b16a67dfa5))
+
 ### [0.2.5](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/compare/v0.2.4...v0.2.5) (2025-08-29)
 
 ### [0.2.4](https://github.com/virtualidentityag/digisucht-onlineBeratung-admin/compare/v0.2.3...v0.2.4) (2025-03-26)
